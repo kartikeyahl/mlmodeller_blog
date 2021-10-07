@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+			<!--START OF LANDING PAGE SECTION-->
+			<div class="landing">
+				<div class="home-wrap">
+					<div class="home-inner"></div>
+				</div>
+			</div>
+
+			<div class="caption text-center">
+				<h1>ML Modeller</h1>
+				<h3>Regression</h3>
+			</div>
+			<!--END OF LANDING PAGE SECTION-->
+		</div>
+		<!--END OF HOME SECTION-->
+
+		<!--START OF Algorithms SECTION-->
+		<div id="algorithms" class="offset">
+			<div class="catalogue-narrow text-center">
+				<div class="col-12">
+					<h3 class="heading">Algorithms</h3>
+					<div class="heading-underline"></div>
+				</div>
+				<!--START OF ALGORITHMS ROW-->
+				<div class="row justify-content-center">
+					<!--START OF SIMPLE LINEAR REGRESSION-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'simple-linear-regression' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Regression/Simple Linear Regression.png' %}">
+								<div class="card-body">
+									<h3>Simple Linear Regression</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF SIMPLE LINEAR REGRESSION-->
+					<!--START OF MULTIPLE LINEAR REGRESSION-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'multiple-linear-regression' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Regression/Multiple Linear Regression.png' %}">
+								<div class="card-body">
+									<h3>Multiple Linear Regresssion</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF MULTIPLE LINEAR REGRESSION-->
+
+					<!--START OF POLYNOMIAL REGRESSION-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'polynomial-regression' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Regression/Polynomial Regression.png' %}">
+								<div class="card-body">
+									<h3>Polynomial Regression</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF POLYNOMIAL REGRESSION-->
+
+					<!--START OF SUPPORT VECTOR-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'support-vector-regression' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Regression/Support Vector Regression.png' %}">
+								<div class="card-body">									
+									<h3>Support Vector Regression</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF SUPPORT VECTOR-->
+
+					<!--START OF DECISION TREE-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'decisiontree-regression' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Regression/Decision Tree Regression.png' %}">
+								<div class="card-body">
+									<h3>Decision Tree Regression</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF DECISION TREE-->
+
+					<!--START OF RANDOM FOREST-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'random-forest-regression' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Regression/Random Forest Regression.png' %}">
+								<div class="card-body">
+									<h3>Random Forest Regression</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF RANDOM FOREST-->
+				</div>	
+				<!--END OF ALGORITHMS ROW-->
+			</div>
+		</div>
+		<!--END OF CATALOGUE SECTION-->
+{% endblock content %}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>		
+		
+		<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TTCLQHM');</script>
+<!-- End Google Tag Manager -->
+		
+		{% load static %}
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="{% static 'Images/Logo/icon.png' %}" type="image/x-icon">
+		<title>ML MODELLER ! No-code platform</title>
+		<meta name="description" content="M.L. modeller is a web application. It is a no-code platform, with the purpose of helping general people train machine learning models on their datasets, just by uploading it and making predictions on the input dataset." />
+		<!-- CSS Files link-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{% static 'styles/home.css' %}">
+		<!--JavaScript Files -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+		<script data-ad-client="ca-pub-6607359696323605" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	</head>
+
+	<body data-spy="scroll" data-target="#navbarResponsive">
+		<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTCLQHM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+		<!--START OF HOME SECTION-->
+		<div id="home">
+			<!--START OF NAVIGATION BAR-->
+			<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+				<a class="navbar-brand" href="/"><img src="{% static 'Images/Logo/logo.png' %}"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+						<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto ">
+						<li class="nav-item">                 
+							<a class="nav-link {% if homePage  %} active {% endif %} " href="/">Home</a>
+						</li>
+						<!-------------------------->
+						<li class="nav-item">                 
+							<a class="nav-link" href="{% url 'projects' %}">Blog</a>
+						</li>
+						<!-------------------------->
+						<li class="nav-item">
+							<a class="nav-link {% if classificationPage  %} active {% endif %} " href="{% url 'classfication' %}">Classification</a>
+						</li>
+						<!-------------------------->
+						{% comment %} <li class="nav-item">
+							<a class="nav-link {% if deeplearningPage  %} active {% endif %} " href="{% url 'Deeplearning' %}">Deep Learning</a>
+						</li> {% endcomment %}
+						<!-------------------------->
+						<li class="nav-item">
+							<a class="nav-link {% if regressionPage %} active {% endif %} " href="{% url 'regression' %}">Regression</a>
+						</li>
+						<!-------------------------->
+						<li class="nav-item">
+							<a class="nav-link  {% if aboutusPage %} active {% endif %}" href="/about-us">About us</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!--END OF NAVIGATION BAR-->
+			{% block content %}
+			{% endblock content %}
+		<!--START OF CONTACT SECTION-->
+		<div id="contact" class="offset">
+			<footer>
+				<div class="row justify-content-center">
+					<div class="col-md-5 text-center">
+						<img src="{% static 'Images/Logo/logo.png' %}">
+						<p>At our core is a collection of design and development solutions that represent everything your business needs to compete in the modern marketplace.</p>
+						<strong>Contact us</strong><br>
+						<a href="https://bit.ly/3l4R4a6" target="_blank"><i class="fab fa-facebook-square"></i></a>
+						<a href="https://bit.ly/3nP2Ln6" target="_blank"><i class="fab fa-twitter-square"></i></a>
+						<a href="https://bit.ly/3pSuipL" target="_blank"><i class="fab fa-instagram"></i></a>
+					</div>
+					<hr class="socket">
+					&copy; ML Modeller.
+				</div>	 
+			</footer>
+		</div>
+		
+		<!--END OF CONTACT SECTION-->
+	</body>
+</html>

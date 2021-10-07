@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<!--START OF LANDING PAGE SECTION-->
+	<div class="landing">
+		<div class="home-wrap">
+			<div class="home-inner"></div>
+		</div>
+	</div>
+
+	<div class="caption text-center">
+		<h1>ML Modeller</h1>
+		<h3>Decision Tree Regression</h3>
+	</div>
+	<!--END OF LANDING PAGE SECTION-->
+</div>
+<!--END OF HOME SECTION-->
+
+<div id="description" class="offset">
+	<div class="col-12">
+		<div class="row text-justify box">
+			<div class="col-lg-4 col-md-12">
+				<div class="upload">
+					<form method="POST" enctype="multipart/form-data" action="."> {% csrf_token %}
+						<h3>Dataset File</h3>
+						<input type="file" id="datset" name="data_file" accept=".csv" required="" class="upload-box">
+						<br><br>
+						<h3>Input File</h3>
+						<input type="file" id="input" name="input_file" accept=".csv" required="" class="upload-box">
+						<br><br>
+						<input type="submit" name="" value="Upload" class="submit">
+					</form>
+				</div>
+				{% if result %}
+				<div class="result instruction">
+					<h2 class="text-center">Result</h2>
+					<div class="description-underline"></div>
+					<p></p>
+					<ul>
+						{% for value in result %}
+							<li>{{value}}</li>
+						{% endfor %}
+						</ul>
+				</div>
+				{% endif %}
+				<div class="instruction">
+					<h2 class="text-center">Instructions</h2>
+					<div class="description-underline text-justify"></div>
+					<p><strong>1. Please upload datasets without categorical variables.</strong></p>
+					<p><strong>If having categorical variables, then you can do the following:-</strong><br>
+							You can either delete column consisting categorical variables,
+						<strong><center>OR</strong></center><br>
+							Before uploading documents, pre-processed any categorical features/columns in the dataset(.csv file), using Label encoding and one hot encoding.<strong>For example:-</strong></p>
+					<div class="row">
+						<img src="{% static 'Images/Instruction/sheet1.png' %}">
+						<img src="{% static 'Images/Instruction/arrow.png' %}" height="30%" width="30%">
+						<img src="{% static 'Images/Instruction/sheet2.png' %}">
+					</div>
+					<p><br><strong>2. Avoid index column in the dataset which you upload.</strong></p>
+				</div>
+			</div>
+
+			<div class="col-lg-8 col-md-12">
+				<div class="description">
+					<h1>About Decision Tree Regression</h1>
+					<div class="description-underline"></div>
+					<p>Decision tree builds regression or classification models in the form of a tree structure. It breaks down a dataset into smaller and smaller subsets while at the same time an associated decision tree is incrementally developed. The final result is a tree with decision nodes and leaf nodes.</p>
+
+					<h1>Requirements</h1>
+					<div class="description-underline"></div>
+					<p></p>
+				
+					<h1>Applications</h1>
+					<div class="description-underline"></div>
+					<ul>
+						<li><strong>Business Management</strong></li>
+							In the past decades, many organizations had created their own databases to enhance their customer services. Decision trees are a possible way to extract useful information from databases and they have already been employed in many applications in the domain of business and management.
+						<li><strong>Healthcare Management</strong></li>
+							As decision tree modelling can be used for making predictions, there are an increasing number of studies that investigate to use decision trees in health-care management. 
+					</ul> 
+					<h1>Examples</h1>
+					<div class="description-underline"></div>
+					<img src="{% static 'Images/Algorithms/Regression/Examples/DecisionTree Regression.png' %}" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+{% endblock content %}

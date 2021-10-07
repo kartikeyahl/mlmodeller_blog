@@ -1,0 +1,63 @@
+{% load static %}
+
+
+<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href=""><img src="{% static 'images/logo.png' %}"></a>
+    <button class="navbar-toggle1r" type="button" data-toggle1="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggle1r-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="header1__menu ">
+            <li class="nav-item">
+                <a class="nav-link {% if homePage  %} active {% endif %} " href="">Home</a>
+            </li>
+           
+            
+
+            <li class="nav-item">
+                <a class="nav-link {% if classificationPage  %} active {% endif %} " href="">Classification</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {% if regressionPage %} active {% endif %} " href="">Regression</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link {% if deeplearningPage  %} active {% endif %} " href="">Blog Page</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link  {% if aboutusPage %} active {% endif %}" href="">About us</a>
+            </li>
+        </ul>
+    </div>
+</nav>  -->
+
+
+
+<!-- Header Section -->
+<header class="header1">
+    <div class="container container--narrow">
+        <a href="{% url 'profiles' %}" class="header__logo">
+            <img src="{% static 'Images/logo.png' %} " alt="DevSearch Logo" />
+        </a>
+
+        <nav class="header__nav">
+            <input type="checkbox" id="responsive-menu" />
+            <label for="responsive-menu" class="toggle-menu">
+                <span>Menu</span>
+                <div class="toggle-menu__lines"></div>
+            </label>
+            <ul class="header__menu">
+                <li class="header__menuItem"><a href="/">Home</a></li>
+                <li class="header__menuItem"><a href="{% url 'projects' %}">Blog</a></li>
+                <li class="header__menuItem"><a href="{% url 'classfication' %}">Classification</a></li>
+                <li class="header__menuItem"><a href="{% url 'regression' %}">Regression</a></li>
+                <li class="header__menuItem"><a href="/about-us">About us</a></li>
+
+            
+            
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<!--START OF LANDING PAGE SECTION-->
+	<div class="landing">
+		<div class="home-wrap">
+			<div class="home-inner"></div>
+		</div>
+	</div>
+
+	<div class="caption text-center">
+		<h1>ML Modeller</h1>
+		<h3>{{title2}}</h3>
+	</div>
+	<!--END OF LANDING PAGE SECTION-->
+</div>
+<!--END OF HOME SECTION-->
+
+<div id="description" class="offset">
+	<div class="col-12">
+		<div class="row text-justify box">
+			<div class="col-lg-4 col-md-12">
+				<div class="upload">
+					<form method="POST" enctype="multipart/form-data" action="."> {% csrf_token %}
+						<h3>Dataset File</h3>
+						<input type="file" id="datset" name="data_file" accept=".csv" required="" class="upload-box">
+						<br><br>
+						<h3>Input File</h3>
+						<input type="file" id="input" name="input_file" accept=".csv" required="" class="upload-box">
+						<br><br>
+						<input type="submit" name="" value="Upload" class="submit">
+					</form>
+				</div>
+				{% if result %}
+				<div class="result instruction">
+					<h2 class="text-center">Result</h2>
+					<div class="description-underline"></div>
+					<p></p>
+					<ul>
+						{% for value in result %}
+							<li>{{value}}</li>
+						{% endfor %}
+						</ul>
+				</div>
+				{% endif %}
+				<div class="instruction">
+					<h2 class="text-center">Instructions</h2>
+					<div class="description-underline text-justify"></div>
+					<p><strong>1. Please upload datasets without categorical variables.</strong></p>
+					<p><strong>If having categorical variables, then you can do the following:-</strong><br>
+							You can either delete column consisting categorical variables,
+						<strong><center>OR</strong></center><br>
+							Before uploading documents, pre-processed any categorical features/columns in the dataset(.csv file), using Label encoding and one hot encoding.<strong>For example:-</strong></p>
+					<div class="row">
+						<img src="{% static 'Images/Instruction/sheet1.png' %}">
+						<img src="{% static 'Images/Instruction/arrow.png' %}" height="30%" width="30%">
+						<img src="{% static 'Images/Instruction/sheet2.png' %}">
+					</div>
+					<p><br><strong>2. Avoid index column in the dataset which you upload.</strong></p>
+				</div>
+			</div>
+
+			<div class="col-lg-8 col-md-12">
+				<div class="description">
+					<h1>About Artificial Neural Network</h1>
+					<div class="description-underline"></div>
+					<p>An artificial neural network (ANN) is the piece of a computing system designed to simulate the way the human brain analyzes and processes information. It is the foundation of artificial intelligence (AI) and solves problems that would prove impossible or difficult by human or statistical standards. ANNs have self-learning capabilities that enable them to produce better results as more data becomes available.</p>
+					<p>If we want a output whose output is in binary form i.e. there are only two definite output, then we use ANN using sigmoid function.</p>
+
+					<h1>Requirements</h1>
+					<div class="description-underline"></div>
+					<p></p>
+				
+					<h1>Applications</h1>
+					<div class="description-underline"></div>
+					<ul>
+						<li><strong>Image Processing and Character recognition</strong></li>
+							ANNs are playing a big role in image and character recognition. Character recognition like handwriting has lot of applications in fraud detection (e.g. bank fraud) and even national security assessments.
+						<li><strong>Forecasting</strong></li>
+								Forecasting is required extensively in everyday business decisions (e.g. sales, financial allocation between products, capacity utilization), in economic and monetary policy, in finance and stock market. More often, forecasting problems are complex.
+					</ul> 
+
+					<h1>Examples</h1>
+					<div class="description-underline"></div>
+					<img src="{% static 'Images/Algorithms/Deep Learning/Examples/Artificial NN.png' %}" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+{% endblock content %}

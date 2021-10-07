@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--START OF LANDING PAGE SECTION-->
+<div class="landing">
+	<div class="home-wrap">
+		<div class="home-inner"></div>
+	</div>
+</div>
+<div class="caption text-center">
+	<h1>ML Modeller</h1>
+	<h3>Decision Tree Classification</h3>
+</div>
+<!--END OF LANDING PAGE SECTION-->
+</div>
+<!--END OF HOME SECTION-->
+<div id="description" class="offset">
+	<div class="col-12">
+		<div class="row text-justify box">
+			<div class="col-lg-4 col-md-12">
+				<div class="upload">
+					<form method="POST" enctype="multipart/form-data" action="."> {% csrf_token %}
+						<h3>Dataset File</h3>
+						<input type="file" id="datset" name="data_file" accept=".csv" required="" class="upload-box">
+						<br><br>
+						<h3>Input File</h3>
+						<input type="file" id="input" name="input_file" accept=".csv" required="" class="upload-box">
+						<br><br>
+						<input type="submit" name="" value="Upload" class="submit">
+					</form>
+				</div>
+				{% if result %}
+				<div class="result instruction">
+					<h2 class="text-center">Result</h2>
+					<div class="description-underline"></div>
+					<p></p>
+					<ul>
+						{% for value in result %}
+							<li>{{value}}</li>
+						{% endfor %}
+						</ul>
+				</div>
+				{% endif %}
+				<div class="instruction">
+					<h2 class="text-center">Instructions</h2>
+					<div class="description-underline"></div>
+					<p><strong>1. Please upload datasets without categorical variables.</strong></p>
+					<p><strong>If having categorical variables, then you can do the following:-</strong><br>
+							You can either delete column consisting categorical variables,
+						<strong><center>OR</strong></center><br>
+							Before uploading documents, pre-processed any categorical features/columns in the dataset(.csv file), using Label encoding and one hot encoding.<strong>For example:-</strong></p>
+					<div class="row">
+						<img src="{% static 'Images/Instruction/sheet1.png' %}">
+						<img src="{% static 'Images/Instruction/arrow.png' %}" height="30%" width="30%">
+						<img src="{% static 'Images/Instruction/sheet2.png' %}">
+					</div>
+					<p><br><strong>2. Avoid index column in the dataset which you upload.</strong></p>
+				</div>
+			</div>
+
+			<div class="col-lg-8 col-md-12">
+				<div class="description">
+					<h1>About Decision Tree Classification</h1>
+					<div class="description-underline"></div>
+					<p>Decision Tree algorithm belongs to the family of supervised learning algorithms. Unlike other supervised learning algorithms, the decision tree algorithm can be used for solving regression and classification problems too.</p>
+					<p>The goal of using a Decision Tree is to create a training model that can use to predict the class or value of the target variable by learning simple decision rules inferred from prior data(training data).</p>
+					<p>In Decision Trees, for predicting a class label for a record we start from the root of the tree. We compare the values of the root attribute with the record’s attribute. On the basis of comparison, we follow the branch corresponding to that value and jump to the next node.</p>
+
+					<h1>Requirements</h1>
+					<div class="description-underline"></div>
+					<p>If large training data is present and nonlinearly distributed, then we can use this decision tree classification method to get more accurate results.</p>
+				
+					<h1>Applications</h1>
+					<div class="description-underline"></div>
+					<ul>
+						<li><strong>Assessing prospective growth opportunities</strong></li>
+							One of the applications of decision trees involves evaluating prospective growth opportunities for businesses based on historical data. Historical data on sales can be used in decision trees that may lead to making radical changes in the strategy of a business to help aid expansion and growth.
+						<li><strong>Using demographic data to find prospective clients</strong></li>
+							Another application of decision trees is in the use of demographic data to find prospective clients. They can help in streamlining a marketing budget and in making informed decisions on the target market that the business is focused on. In the absence of decision trees, the business may spend its marketing market without a specific demographic in mind, which will affect its overall revenues.
+					</ul> 
+
+					<h1>Examples</h1>
+					<div class="description-underline"></div>
+					<img src="{% static 'Images/Algorithms/Classification/Examples/Decision Tree.png' %}" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

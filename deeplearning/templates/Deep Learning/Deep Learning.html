@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+			<!--START OF LANDING PAGE SECTION-->
+			<div class="landing">
+				<div class="home-wrap">
+					<div class="home-inner"></div>
+				</div>
+			</div>
+			<div class="caption text-center">
+				<h1>ML Modeller</h1>
+				<h3>Deep Learning</h3>
+			</div>
+			<!--END OF LANDING PAGE SECTION-->
+		</div>
+		<!--END OF HOME SECTION-->
+
+		<!--START OF CATALOGUE SECTION-->
+		<div id="algorithms" class="offset">
+			<div class="catalogue-narrow text-center">
+				<div class="col-12">
+					<h3 class="heading">Algorithms</h3>
+					<div class="heading-underline"></div>
+				</div>
+				<!--START OF ALGORITHMS ROW-->
+				<div class="row justify-content-center">
+
+					<!--START OF ARTIFICIAL NEURAL NETWORK-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'ann-sigmoid' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Deep Learning/Artificial NN.png' %}">
+								<div class="card-body">								
+									<h3>ANN (Binary Output)</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF ARTIFICIAL NEURAL NETWORK-->
+
+					<!--START OF ARTIFICIAL NEURAL NETWORK-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'ann-softmax' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Deep Learning/Artificial NN.png' %}">
+								<div class="card-body">								
+									<h3>ANN (Non-Binary Output)</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF ARTIFICIAL NEURAL NETWORK-->
+
+				</div>	
+				<!--END OF ALGORITHMS ROW-->
+			</div>
+		</div>
+		<!--END OF CATALOGUE SECTION-->
+{% endblock content %}

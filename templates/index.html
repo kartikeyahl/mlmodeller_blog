@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--START OF LANDING PAGE SECTION-->
+<div class="landing">
+	<div class="home-wrap">
+		<div class="home-inner"></div>
+	</div>
+</div>
+<div class="caption text-center">
+	<h1>ML Modeller</h1>
+	<h3>Teach Your Machine</h3>
+	<p >Please visit <strong>About us </strong> page to learn more about the website and how to utilize its services.</p>
+</div>
+<!--END OF LANDING PAGE SECTION-->
+</div>
+<!--END OF HOME SECTION-->
+<!--START OF ALGORITHMS SECTION-->
+<div id="algorithms" class="offset">
+	<div class="catalogue-narrow text-center">
+		<div class="col-12">
+			<h3 class="heading">Algorithms</h3>
+			<div class="heading-underline"></div>
+		</div>
+		<!--START OF ALGORITHMS ROW-->
+		<div class="row justify-content-center">
+			<!--START OF CLASSIFICATION-->
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="card catalogue" id="classification">
+					<a href="{% url 'classfication' %}">
+						<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Classification/Classification.png' %}">
+						<div class="card-body">
+							<h3>CLASSIFICATION</h3>
+						</div>
+					</a>
+				</div>
+			</div>
+			<!--END OF CLASSIFICATION-->
+			<!--START OF DEEP LEARNING-->
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="card catalogue" id="deep-learning">
+					<a href="#">
+						<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Deep Learning/Deep Learning.png' %}">
+						<div class="card-body">
+							<h3>DEEP LEARNING (Comming Soon)</h3>
+						</div>
+					</a>
+				</div>
+			</div>
+			<!--END OF DEEP LEARNING-->
+			<!--START OF REGRESSION-->
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="card catalogue" id="regression">
+					<a href="{% url 'regression' %}">
+						<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Regression/Regression.png' %}">
+						<div class="card-body">
+							<h3>REGRESSION</h3>
+						</div>
+					</a>
+				</div>
+			</div>
+			<!--END OF REGRESSION-->
+		</div>	
+		<!--END OF ALGORITHMS ROW-->
+	</div>
+</div>
+<!--END OF CATALOGUE SECTION-->
+<!--START OF PROCEDURE SECTION-->
+<div id="procedure" class="offset">
+	<div class="jumbotron">
+		<div class="narrow text-center">
+			<div class="col-12">
+				<h3 class="heading">PROCEDURE</h3>
+				<div class="heading-underline"></div>
+			</div>
+			<!--START OF PROCEDURE ROW-->
+			<div class="row text-center">
+				<div class="col-md-4">
+					<div class="feature">
+						<i class="fa fa-columns fa-4x" data-fa-transform="shrink-3 up-5"
+						aria-hidden="true"></i>
+						<h3>Choose Algorithm</h3>
+						<p>Choose between different algorithms with which you want to train your model.</p>
+					</div>
+				</div>
+				<!----------->
+				<div class="col-md-4">
+					<div class="feature">
+						<i class="fas fas fa-file-upload fa-4x" data-fa-transform="shrink-4.5 up-4.5"></i>
+						<h3>Upload Dataset</h3>
+						<p>After Choosing your algorithm, just upload your dataset and we will give you result in few minutes.</p>
+					</div>
+				</div>
+				<!----------->
+				<div class="col-md-4">
+					<div class="feature">
+						<i class="fab fa-wpforms fa-4x" data-fa-transform="shrink-4 up-5"></i>
+						<h3>Get Your Result</h3>
+						<p>You can just view your result or download it and use it further.</p>
+					</div>
+				</div>
+			</div>
+			<!--END OF PROCEDURE ROW-->
+		</div>
+	</div>
+</div>
+<!--END OF PROCEDURE SECTION-->
+<!--START OF FEATURES SECTION-->
+<div id="features" class="offset">
+	<div class="fixed-background">
+		<div class="row dark text-center">
+			<div class="col-12">
+				<h3 class="heading">Built With Care</h3>
+				<div class="heading-underline"></div>
+			</div>
+			<div class="col-md-4">
+				<h3>Privacy</h3>
+				<div class="feature">
+					<i class="fas fa-shield-alt fa-3x"></i>
+				</div>
+				<p class="lead">Don't worry, We don't store your data.</p>
+			</div>
+			<div class="col-md-4">
+				<h3>Hassle Free</h3>
+				<div class="feature">
+					<i class="fas fa-hands-helping fa-3x"></i>
+				</div>
+				<p class="lead">You just need to choose algorithm and rest is on us.</p>
+			</div>
+			<div class="col-md-4">
+				<h3>Free</h3>
+				<div class="feature">
+					<i class="fas fa-wallet fa-3x"></i>
+				</div>
+				<p class="lead">We don't charge, it's absolutely free.</p>
+			</div>
+		</div>
+		<div class="fixed-wrap">
+			<div class="fixed"></div>
+		</div>
+	</div>
+</div>
+<!--END OF FEATURES SECTION-->
+<!--START OF TEAM SECTION -->
+<div id="team" class="offset">
+	<div class="jumbotron">
+		<div class="col-12 text-center">
+			<h3 class="heading">OUR TEAM</h3>
+			<div class="heading-inderline"></div>
+		</div>
+		<div class="row">
+			<div class="col-lg-3 col-md-4 text-center">
+				<div class="card kartikey-card team">
+					<div class="card-body">
+						<img src="{% static 'Images/Team Members/Kartikey.png' %}" class="img-fluid rounded-circle w-50 mb-3 team-img">
+						<h4>Founder</h4>
+						<h3>KARTIKEY</h3>
+						<p>He is a machine learning enthusiast, he handles the development of various algorithms for this platform.</p>
+						<div class="d-flex justify-content-center">
+							<div class="p-4">
+								<a href="https://bit.ly/3olr79j" target="_blank">
+									<i class="fab fa-facebook-square profile-link"></i>
+								</a>
+							</div>
+							<div class="p-4">
+								<a href="https://bit.ly/3orSWNd" target="_blank">
+									<i class="fab fa-instagram profile-link"></i>
+								</a>
+							</div>
+							<div class="p-4">
+								<a href="https://bit.ly/34s6dNO" target="_blank">
+									<i class="fab fa-linkedin profile-link"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 text-center">
+				<div class="card team">
+					<div class="card-body">
+						<img src="{% static 'Images/Team Members/Prajjwal.png' %}" class="img-fluid rounded-circle w-50 mb-3 team-img">
+						<h3>PRAJJWAL AGRAHARI</h3>
+						<p>He is a full stack developer, and currently resposible for the front-end of the ML MODELLER platform.</p>
+						<div class="d-flex justify-content-center">
+							<div class="p-4">
+								<a href="https://bit.ly/3kwezcH" target="_blank">
+									<i class="fab fa-facebook-square profile-link"></i>
+								</a>
+							</div>
+							<div class="p-4">
+								<a href="https://bit.ly/3ktv6y6" target="_blank">
+									<i class="fab fa-instagram profile-link"></i>
+								</a>
+							</div>
+							<div class="p-4">
+								<a href="https://bit.ly/3jsXjUz" target="_blank">
+									<i class="fab fa-linkedin profile-link"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>					
+			<div class="col-lg-3 col-md-4 text-center">
+				<div class="card team">
+					<div class="card-body">
+						<img src="{% static 'Images/Team Members/Praveen.png' %}" class="img-fluid rounded-circle w-50 mb-3 team-img">
+						<h3>PRAVEEN MALETHIA</h3>
+						<p>He is a software developer, and currently responsible for the API connectivity of this platform.<p>
+						<div class="d-flex justify-content-center">
+							<div class="p-4">
+								<a href="https://bit.ly/2TpKsro" target="_blank">
+									<i class="fab fa-facebook-square profile-link"></i>
+								</a>
+							</div>
+							<div class="p-4">
+								<a href="https://bit.ly/3mipXJJ" target="_blank">
+									<i class="fab fa-instagram profile-link"></i>
+								</a>
+							</div>
+							<div class="p-4">
+								<a href="https://bit.ly/3mlKq0k" target="_blank">
+									<i class="fab fa-linkedin profile-link"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 text-center">
+				<div class="card team">
+					<div class="card-body">
+						<img src="{% static 'Images/Team Members/Kashish.png' %}" class="img-fluid rounded-circle w-50 mb-3 team-img">
+						<h3>KASHISH GALHOTRA</h3>
+						<p>He is a full stack-developer, and currently responsible for back-end of the ML MODELLER platform.</p>
+						<div class="d-flex justify-content-center">
+							<div class="p-4">
+								<a href="https://bit.ly/31HU05F" target="_blank">
+									<i class="fab fa-facebook-square profile-link"></i>
+								</a>
+							</div>
+							<div class="p-4">
+								<a href="https://bit.ly/37FHd7u" target="_blank">
+									<i class="fab fa-instagram profile-link"></i>
+								</a>
+							</div>
+							<div class="p-4">
+								<a href="https://bit.ly/3ophbvn" target="_blank">
+									<i class="fab fa-linkedin profile-link"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--END OF TEAM SECTION-->
+{% endblock content %}

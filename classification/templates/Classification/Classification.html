@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+			<!--START OF LANDING PAGE SECTION-->
+			<div class="landing">
+				<div class="home-wrap">
+					<div class="home-inner" background="{% static 'Images/Algorithms/Classification/Classification.png' %}"></div>
+				</div>
+			</div>
+
+			<div class="caption text-center">
+				<h1>ML Modeller</h1>
+				<h3>Classification</h3>
+			</div>
+			<!--END OF LANDING PAGE SECTION-->
+		</div>
+		<!--END OF HOME SECTION-->
+
+		<!--START OF ALGORITHMS SECTION-->
+		<div id="algorithms" class="offset">
+			<div class="catalogue-narrow text-center">
+				<div class="col-12">
+					<h3 class="heading">Algorithms</h3>
+					<div class="heading-underline"></div>
+				</div>
+				<!--START OF ALGORITHMS ROW-->
+				<div class="row justify-content-center">
+					<!--START OF DECISION TREE-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'decision-tree' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Classification/Decision Tree.png' %}">
+								<div class="card-body">
+									<h3>Decision Tree</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF DECISION TREE-->
+
+					<!--START OF KERNEL SVM-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'kernel-svm' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Classification/Kernel SVM.png' %}">
+								<div class="card-body">
+									<h3>Kernel SVM</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF KERNEL SVM-->
+
+					<!--START OF KNN-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'k-nearest-neighbors' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Classification/KNN.png' %}">
+								<div class="card-body">
+									<h3>K-Nearest Neighbour</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF KNN-->
+
+					<!--START OF LINEAR SVM-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'support-vector' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Classification/Linear SVM.png' %}">
+								<div class="card-body">
+									<h3>Linear SVM</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF LINEAR SVM-->
+{% comment %} 
+					<!--START OF LOGISTIC REGRESSION-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'logistic-regression' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Classification/Logistic Regression.png' %}">
+								<div class="card-body">
+									<h3>Logistic Regression</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF LOGISTIC REGRESSION--> {% endcomment %}
+
+					<!--START OF NAIVE BAYES-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'naive-bayes' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Classification/Naive Bayes.png' %}">
+								<div class="card-body">
+									<h3>Naive Bayes</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF NAIVE BAYES-->
+
+					<!--START OF RANDOM FOREST-->
+					<div class="col-lg-3 col-md-6 text-center">
+						<div class="card catalogue">
+							<a href="{% url 'random-forest' %}">
+								<img class="img-fluid card-img-top" src="{% static 'Images/Algorithms/Classification/Random Forest.png' %}">
+								<div class="card-body">
+									<h3>Random Forest</h3>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--END OF RANDOM FOREST-->
+				</div>	
+				<!--END OF ALGORITHMS ROW-->
+			</div>
+		</div>
+		<!--END OF CATALOGUE SECTION-->
+	{% endblock content %}
