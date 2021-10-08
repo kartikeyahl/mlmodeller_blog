@@ -879,7 +879,7 @@ img {
   position: sticky;
   z-index: 111;
   background-color: var(--color-sub);
-  padding: 1.5rem 0;                       /*top nav height */
+  padding: 0.6rem 0;                       /*top nav height */
   }
   
 
