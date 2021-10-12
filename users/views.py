@@ -73,6 +73,7 @@ def profiles(request):
     profiles, search_query = searchProfiles(request)
 
     custom_range, profiles = paginateProfiles(request, profiles, 3)
+    context={}
 
     try:
         profile = request.user.profile
@@ -82,8 +83,8 @@ def profiles(request):
     except :
         pass
 
-    context = {'profiles': profiles, 'search_query': search_query,
-               'custom_range': custom_range}
+    context.update({'profiles': profiles, 'search_query': search_query,
+               'custom_range': custom_range})
     return render(request, 'users/profiles.html', context)
 
 
@@ -92,6 +93,7 @@ def userProfile(request, pk):
 
     topSkills = profile.skill_set.exclude(description__exact="")
     otherSkills = profile.skill_set.filter(description="")
+    context={}
 
     try:
         profile1 = request.user.profile
@@ -101,8 +103,8 @@ def userProfile(request, pk):
     except :
         pass
 
-    context = {'profile': profile, 'topSkills': topSkills,
-               "otherSkills": otherSkills}
+    context.update({'profile': profile, 'topSkills': topSkills,
+               "otherSkills": otherSkills})
     return render(request, 'users/user-profile.html', context)
 
 
@@ -226,6 +228,7 @@ def viewMessage(request, pk):
 def createMessage(request, pk):
     recipient = Profile.objects.get(id=pk)
     form = MessageForm()
+    context={}
 
     try:
         sender = request.user.profile
@@ -253,5 +256,5 @@ def createMessage(request, pk):
         context={'unreadCount': unreadCount}
     except :
         pass
-    context = {'recipient': recipient, 'form': form}
+    context.update({'recipient': recipient, 'form': form})
     return render(request, 'users/message_form.html', context)
