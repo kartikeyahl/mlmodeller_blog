@@ -11,15 +11,22 @@ from .utils import searchProjects, paginateProjects
 def projects(request):
     projects, search_query = searchProjects(request)
     custom_range, projects = paginateProjects(request, projects, 6)
+    profile = request.user.profile
+    messageRequests = profile.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
 
     context = {'projects': projects,
-               'search_query': search_query, 'custom_range': custom_range}
+               'search_query': search_query, 'custom_range': custom_range, 'unreadCount': unreadCount}
     return render(request, 'projects/projects.html', context)
 
 
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)
     form = ReviewForm()
+    profile = request.user.profile
+    messageRequests = profile.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+    
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -33,7 +40,7 @@ def project(request, pk):
         messages.success(request, 'Your review was successfully submitted!')
         return redirect('project', pk=projectObj.id)
 
-    return render(request, 'projects/single-project.html', {'project': projectObj, 'form': form})
+    return render(request, 'projects/single-project.html',{'project': projectObj, 'form': form, 'unreadCount': unreadCount})
 
 
 @login_required(login_url="login")
@@ -53,8 +60,10 @@ def createProject(request):
                 tag, created = Tag.objects.get_or_create(name=tag)
                 project.tags.add(tag)
             return redirect('account')
-
-    context = {'form': form}
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+    context = {'form': form, 'unreadCount': unreadCount}
     return render(request, "projects/project_form.html", context)
 
 
@@ -76,9 +85,11 @@ def updateProject(request, pk):
 
             return redirect('account')
 
-    context = {'form': form, 'project': project}
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+    context = {'form': form, 'project': project, 'unreadCount': unreadCount}
     return render(request, "projects/project_form.html", context)
-
 
 @login_required(login_url="login")
 def deleteProject(request, pk):
@@ -87,5 +98,8 @@ def deleteProject(request, pk):
     if request.method == 'POST':
         project.delete()
         return redirect('projects')
-    context = {'object': project}
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+    context = {'object': project, 'unreadCount': unreadCount}
     return render(request, 'delete_template.html', context)
