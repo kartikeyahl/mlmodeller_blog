@@ -11,6 +11,7 @@ from .utils import searchProjects, paginateProjects
 def projects(request):
     projects, search_query = searchProjects(request)
     custom_range, projects = paginateProjects(request, projects, 6)
+    context={}
 
     try:
         profile = request.user.profile
@@ -19,14 +20,15 @@ def projects(request):
         context={'unreadCount': unreadCount}
     except :
         pass
-    context = {'projects': projects,
-               'search_query': search_query, 'custom_range': custom_range}
+    context.update({'projects': projects,
+               'search_query': search_query, 'custom_range': custom_range})
     return render(request, 'projects/projects.html', context)
 
 
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)
     form = ReviewForm()
+    
     try:
         profile = request.user.profile
         messageRequests = profile.messages.all()
