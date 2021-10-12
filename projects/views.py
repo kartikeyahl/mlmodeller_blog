@@ -28,12 +28,12 @@ def projects(request):
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)
     form = ReviewForm()
-    
+    context={}
     try:
         profile = request.user.profile
         messageRequests = profile.messages.all()
         unreadCount = messageRequests.filter(is_read=False).count()
-        
+        context={'unreadCount': unreadCount}
     except :
         pass
     
@@ -50,7 +50,8 @@ def project(request, pk):
         messages.success(request, 'Your review was successfully submitted!')
         return redirect('project', pk=projectObj.id)
 
-    return render(request, 'projects/single-project.html',{'project': projectObj, 'form': form, 'unreadCount': unreadCount})
+    context.update({'project': projectObj, 'form': form})
+    return render(request, 'projects/single-project.html',context)
 
 
 @login_required(login_url="login")
