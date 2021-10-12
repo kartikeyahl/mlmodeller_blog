@@ -73,8 +73,13 @@ def profiles(request):
     profiles, search_query = searchProfiles(request)
 
     custom_range, profiles = paginateProfiles(request, profiles, 3)
+    profile = request.user.profile
+    messageRequests = profile.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+
+
     context = {'profiles': profiles, 'search_query': search_query,
-               'custom_range': custom_range}
+               'custom_range': custom_range, 'unreadCount':unreadCount}
     return render(request, 'users/profiles.html', context)
 
 
@@ -84,8 +89,12 @@ def userProfile(request, pk):
     topSkills = profile.skill_set.exclude(description__exact="")
     otherSkills = profile.skill_set.filter(description="")
 
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+
     context = {'profile': profile, 'topSkills': topSkills,
-               "otherSkills": otherSkills}
+               "otherSkills": otherSkills, 'unreadCount': unreadCount}
     return render(request, 'users/user-profile.html', context)
 
 
@@ -96,7 +105,11 @@ def userAccount(request):
     skills = profile.skill_set.all()
     projects = profile.project_set.all()
 
-    context = {'profile': profile, 'skills': skills, 'projects': projects}
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+
+    context = {'profile': profile, 'skills': skills, 'projects': projects, 'unreadCount': unreadCount}
     return render(request, 'users/account.html', context)
 
 
@@ -104,6 +117,9 @@ def userAccount(request):
 def editAccount(request):
     profile = request.user.profile
     form = ProfileForm(instance=profile)
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
 
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
@@ -112,7 +128,7 @@ def editAccount(request):
 
             return redirect('account')
 
-    context = {'form': form}
+    context = {'form': form,'unreadCount': unreadCount}
     return render(request, 'users/profile_form.html', context)
 
 
@@ -120,6 +136,9 @@ def editAccount(request):
 def createSkill(request):
     profile = request.user.profile
     form = SkillForm()
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
 
     if request.method == 'POST':
         form = SkillForm(request.POST)
@@ -130,7 +149,7 @@ def createSkill(request):
             messages.success(request, 'Skill was added successfully!')
             return redirect('account')
 
-    context = {'form': form}
+    context = {'form': form, 'unreadCount': unreadCount}
     return render(request, 'users/skill_form.html', context)
 
 
@@ -140,6 +159,10 @@ def updateSkill(request, pk):
     skill = profile.skill_set.get(id=pk)
     form = SkillForm(instance=skill)
 
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+
     if request.method == 'POST':
         form = SkillForm(request.POST, instance=skill)
         if form.is_valid():
@@ -147,7 +170,7 @@ def updateSkill(request, pk):
             messages.success(request, 'Skill was updated successfully!')
             return redirect('account')
 
-    context = {'form': form}
+    context = {'form': form, 'unreadCount': unreadCount}
     return render(request, 'users/skill_form.html', context)
 
 
@@ -155,12 +178,15 @@ def updateSkill(request, pk):
 def deleteSkill(request, pk):
     profile = request.user.profile
     skill = profile.skill_set.get(id=pk)
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
     if request.method == 'POST':
         skill.delete()
         messages.success(request, 'Skill was deleted successfully!')
         return redirect('account')
 
-    context = {'object': skill}
+    context = {'object': skill, 'unreadCount': unreadCount}
     return render(request, 'delete_template.html', context)
 
 
@@ -180,7 +206,10 @@ def viewMessage(request, pk):
     if message.is_read == False:
         message.is_read = True
         message.save()
-    context = {'message': message}
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+    context = {'message': message, 'unreadCount': unreadCount}
     return render(request, 'users/message.html', context)
 
 
@@ -208,5 +237,8 @@ def createMessage(request, pk):
             messages.success(request, 'Your message was successfully sent!')
             return redirect('user-profile', pk=recipient.id)
 
-    context = {'recipient': recipient, 'form': form}
+    profile1 = request.user.profile
+    messageRequests = profile1.messages.all()
+    unreadCount = messageRequests.filter(is_read=False).count()
+    context = {'recipient': recipient, 'form': form, 'unreadCount': unreadCount}
     return render(request, 'users/message_form.html', context)
