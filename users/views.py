@@ -73,13 +73,17 @@ def profiles(request):
     profiles, search_query = searchProfiles(request)
 
     custom_range, profiles = paginateProfiles(request, profiles, 3)
-    profile = request.user.profile
-    messageRequests = profile.messages.all()
-    unreadCount = messageRequests.filter(is_read=False).count()
 
+    try:
+        profile = request.user.profile
+        messageRequests = profile.messages.all()
+        unreadCount = messageRequests.filter(is_read=False).count()
+        context={'unreadCount': unreadCount}
+    except :
+        pass
 
     context = {'profiles': profiles, 'search_query': search_query,
-               'custom_range': custom_range, 'unreadCount':unreadCount}
+               'custom_range': custom_range}
     return render(request, 'users/profiles.html', context)
 
 
@@ -89,12 +93,16 @@ def userProfile(request, pk):
     topSkills = profile.skill_set.exclude(description__exact="")
     otherSkills = profile.skill_set.filter(description="")
 
-    profile1 = request.user.profile
-    messageRequests = profile1.messages.all()
-    unreadCount = messageRequests.filter(is_read=False).count()
+    try:
+        profile1 = request.user.profile
+        messageRequests = profile1.messages.all()
+        unreadCount = messageRequests.filter(is_read=False).count()
+        context={'unreadCount': unreadCount}
+    except :
+        pass
 
     context = {'profile': profile, 'topSkills': topSkills,
-               "otherSkills": otherSkills, 'unreadCount': unreadCount}
+               "otherSkills": otherSkills}
     return render(request, 'users/user-profile.html', context)
 
 
@@ -136,6 +144,7 @@ def editAccount(request):
 def createSkill(request):
     profile = request.user.profile
     form = SkillForm()
+
     profile1 = request.user.profile
     messageRequests = profile1.messages.all()
     unreadCount = messageRequests.filter(is_read=False).count()
@@ -206,6 +215,7 @@ def viewMessage(request, pk):
     if message.is_read == False:
         message.is_read = True
         message.save()
+    
     profile1 = request.user.profile
     messageRequests = profile1.messages.all()
     unreadCount = messageRequests.filter(is_read=False).count()
@@ -236,9 +246,12 @@ def createMessage(request, pk):
 
             messages.success(request, 'Your message was successfully sent!')
             return redirect('user-profile', pk=recipient.id)
-
-    profile1 = request.user.profile
-    messageRequests = profile1.messages.all()
-    unreadCount = messageRequests.filter(is_read=False).count()
-    context = {'recipient': recipient, 'form': form, 'unreadCount': unreadCount}
+    try:
+        profile = request.user.profile
+        messageRequests = profile.messages.all()
+        unreadCount = messageRequests.filter(is_read=False).count()
+        context={'unreadCount': unreadCount}
+    except :
+        pass
+    context = {'recipient': recipient, 'form': form}
     return render(request, 'users/message_form.html', context)
