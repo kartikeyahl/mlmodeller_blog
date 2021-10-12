@@ -11,21 +11,29 @@ from .utils import searchProjects, paginateProjects
 def projects(request):
     projects, search_query = searchProjects(request)
     custom_range, projects = paginateProjects(request, projects, 6)
-    profile = request.user.profile
-    messageRequests = profile.messages.all()
-    unreadCount = messageRequests.filter(is_read=False).count()
 
+    try:
+        profile = request.user.profile
+        messageRequests = profile.messages.all()
+        unreadCount = messageRequests.filter(is_read=False).count()
+        context={'unreadCount': unreadCount}
+    except :
+        pass
     context = {'projects': projects,
-               'search_query': search_query, 'custom_range': custom_range, 'unreadCount': unreadCount}
+               'search_query': search_query, 'custom_range': custom_range}
     return render(request, 'projects/projects.html', context)
 
 
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)
     form = ReviewForm()
-    profile = request.user.profile
-    messageRequests = profile.messages.all()
-    unreadCount = messageRequests.filter(is_read=False).count()
+    try:
+        profile = request.user.profile
+        messageRequests = profile.messages.all()
+        unreadCount = messageRequests.filter(is_read=False).count()
+        
+    except :
+        pass
     
 
     if request.method == 'POST':
@@ -84,12 +92,12 @@ def updateProject(request, pk):
                 project.tags.add(tag)
 
             return redirect('account')
-
     profile1 = request.user.profile
     messageRequests = profile1.messages.all()
     unreadCount = messageRequests.filter(is_read=False).count()
     context = {'form': form, 'project': project, 'unreadCount': unreadCount}
     return render(request, "projects/project_form.html", context)
+
 
 @login_required(login_url="login")
 def deleteProject(request, pk):
