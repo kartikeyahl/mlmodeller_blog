@@ -28,10 +28,10 @@ urlpatterns = [
     path('',Index),
     path('about-us/',About),
     path('classification/', include('classification.urls')),
-    path('blog/', include('blog.urls')),
+    #path('blog/', include('blog.urls')),
     #path('deeplearning/', include('deeplearning.urls')),
     path('regression/', include('regression.urls')),
-    path('projects/', include('projects.urls')),
+    path('blogs/', include('projects.urls')),
     path('mainuser', include('users.urls')),
     path('api/', include('api.urls')),
 
