@@ -13,13 +13,13 @@
             <form class="form" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
-                {% for field in form %}
+                
                 <!-- Input:Text -->
                 <div class="form__field">
-                    <label for="formInput#text">{{field.label}}</label>
-                    {{field}}
+                    {{form.media}}
+                {{form.as_p}}
                 </div>
-                {% endfor %}
+                
 
                 <div class="form__field">
                     {% for tag in project.tags.all %}
