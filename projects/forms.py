@@ -2,13 +2,13 @@ from django.db.models.base import Model
 from django.forms import ModelForm, widgets
 from django import forms
 from .models import Project, Review
+from froala_editor.widgets import FroalaEditor
 
 
 class ProjectForm(ModelForm):
     class Meta:
         model = Project
-        fields = ['title', 'featured_image', 'description',
-                  'demo_link', 'source_link']
+        fields = ['title', 'featured_image', 'description']
         widgets = {
             'tags': forms.CheckboxSelectMultiple(),
         }
