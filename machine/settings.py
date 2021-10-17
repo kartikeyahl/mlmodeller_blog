@@ -25,7 +25,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
-    'storages'
+    'storages',
+    'froala_editor'
 ]
 
 #------------------------new------------------------------
