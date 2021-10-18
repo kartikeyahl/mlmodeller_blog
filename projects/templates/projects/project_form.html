@@ -16,8 +16,11 @@
                 
                 <!-- Input:Text -->
                 <div class="form__field">
-                    {{form.media}}
-                {{form.as_p}}
+                    <b>{{form.title.label}}</b>
+                    {{form.title}}
+                    <br><br>
+                    <label><b>Content:</b></label>
+                    <span id="mytextarea">{{form.description}}</span>
                 </div>
                 
 
@@ -29,7 +32,7 @@
                 </div>
 
                 <div class="form__field">
-                    <label for="formInput#text">Tags</label>
+                    <label for="formInput#text"><b>Tags</b></label>
                     <textarea class="input" name="newtags" placeholder="press 'Enter' to keep on adding multiple tags..."></textarea>
                 </div>
                 <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
