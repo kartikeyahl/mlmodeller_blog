@@ -1089,9 +1089,12 @@ img {
 }
 
 
+/* @media (max-width: 768px){
+  .yoyo{
+    display:none;
+}
+}  */
 
-
-/*-----------------Notification message pop-up----------------*/
 .notification {
   
   text-decoration: none;
