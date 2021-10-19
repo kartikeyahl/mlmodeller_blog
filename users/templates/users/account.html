@@ -95,7 +95,7 @@
             </td>
             <td class="settings__tableInfo">
               <a href="{% url 'project' project.id %}">{{project.title}}</a>
-              <p>{{project.description|slice:"150"|safe}}</p>
+              <p>{{project.description|slice:"1000"|safe}}</p>
             </td>
             <td class="settings__tableActions">
               <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-project' project.id %}"><i
