@@ -37,7 +37,7 @@
                 <a href="{% url 'user-profile' project.owner.id  %}"
                     class="singleProject__developer">{{project.owner.name}}</a>
                 <h2 class="singleProject__title">{{project.title}}</h2>
-                <h3 class="singleProject__subtitle">About the Blog</h3>
+                <!-- <h3 class="singleProject__subtitle">About the Blog</h3> -->
                 <div class="singleProject__info">
                     {{project.description|safe}}
                 </div>
@@ -59,7 +59,7 @@
                         {% csrf_token %}
                         {% for field in form %}
                         <div class="form__field">
-                            <label for="formInput#textarea">{{field.label}}</label>
+                            <label for="formInput#textarea">{{field.label }}</label>
                             {{field}}
                         </div>
                         {% endfor %}
