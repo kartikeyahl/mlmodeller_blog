@@ -1089,7 +1089,12 @@ img {
 }
 
 
-/*-----------------Notification message pop-up----------------*/
+/* @media (max-width: 768px){
+  .yoyo{
+    display:none;
+}
+}  */
+
 .notification {
   
   text-decoration: none;
