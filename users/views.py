@@ -108,7 +108,7 @@ def userProfile(request, pk):
     return render(request, 'users/user-profile.html', context)
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def userAccount(request):
     profile = request.user.profile
 
@@ -123,7 +123,7 @@ def userAccount(request):
     return render(request, 'users/account.html', context)
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def editAccount(request):
     profile = request.user.profile
     form = ProfileForm(instance=profile)
@@ -142,7 +142,7 @@ def editAccount(request):
     return render(request, 'users/profile_form.html', context)
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def createSkill(request):
     profile = request.user.profile
     form = SkillForm()
@@ -164,7 +164,7 @@ def createSkill(request):
     return render(request, 'users/skill_form.html', context)
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def updateSkill(request, pk):
     profile = request.user.profile
     skill = profile.skill_set.get(id=pk)
@@ -185,7 +185,7 @@ def updateSkill(request, pk):
     return render(request, 'users/skill_form.html', context)
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def deleteSkill(request, pk):
     profile = request.user.profile
     skill = profile.skill_set.get(id=pk)
@@ -201,7 +201,7 @@ def deleteSkill(request, pk):
     return render(request, 'delete_template.html', context)
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def inbox(request):
     profile = request.user.profile
     messageRequests = profile.messages.all()
@@ -210,7 +210,7 @@ def inbox(request):
     return render(request, 'users/inbox.html', context)
 
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def viewMessage(request, pk):
     profile = request.user.profile
     message = profile.messages.get(id=pk)
