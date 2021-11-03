@@ -88,7 +88,11 @@ def MultipleLinearRegression(request):
             for res in result:
                 f_data.append(res)
             context['result'] = f_data
-            
+            y_pred = classifier.predict(X_test)  
+            mse=mean_squared_error(y_test,y_pred)
+            rmse=np.sqrt(mean_squared_error(y_test,y_pred))
+            mae= mean_absolute_error(y_test,y_pred)
+            context['mse']= mse
             
         except Exception as e:
             return HttpResponse("Error Occured , Reason : " + str(e))
