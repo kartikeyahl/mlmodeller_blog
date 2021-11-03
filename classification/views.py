@@ -236,6 +236,9 @@ def RandomForest(request):
             for res in result:
                 f_data.append(res)
             context['result'] = f_data
+            y_pred = classifier.predict(X_test)  
+            acc=accuracy_score(y_test, y_pred)
+            context['accuracy']= acc
         except Exception as e:
             return HttpResponse("Error Occured , Reason : " + str(e))
     return render(request,template_name,context)
@@ -274,8 +277,7 @@ def SupportVector(request):
             for res in result:
                 f_data.append(res)
             context['result'] = f_data
-            y_pred = classifier.predict(X_test)
-            from sklearn.metrics import accuracy_score
+            y_pred = classifier.predict(X_test)  
             acc=accuracy_score(y_test, y_pred)
             context['accuracy']= acc
         except Exception as e:
