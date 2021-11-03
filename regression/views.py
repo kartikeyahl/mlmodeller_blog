@@ -93,7 +93,8 @@ def MultipleLinearRegression(request):
             rmse=np.sqrt(mean_squared_error(y_test,y_pred))
             mae= mean_absolute_error(y_test,y_pred)
             context['mse']= mse
-            
+            context['rmse']= rmse
+            context['mae']= mae
         except Exception as e:
             return HttpResponse("Error Occured , Reason : " + str(e))
     return render(request, template_name, context)
