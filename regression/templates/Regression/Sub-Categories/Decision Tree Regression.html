@@ -21,7 +21,7 @@
 		<div class="row text-justify box">
 			<div class="col-lg-4 col-md-12">
 				<div class="upload">
-					<form method="POST" enctype="multipart/form-data" action="{% url 'DecisionTreeRegression' %}"> {% csrf_token %}
+					<form method="POST" enctype="multipart/form-data" action="{% url 'decisiontree-regression' %}"> {% csrf_token %}
 						<h3>Dataset File</h3>
 						<input type="file" id="datset" name="data_file" accept=".xlsx" required="" class="upload-box">
 						<br><br>
