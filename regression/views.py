@@ -25,14 +25,14 @@ def DecisionTreeRegression(request):
     template_name = "Regression/Sub-Categories/Decision Tree Regression.html"
     if request.method == 'POST':
         csv_file = request.FILES['data_file']
-        if not csv_file.name.endswith('.csv'):
+        if not csv_file.name.endswith('.xlsx'):
             messages.error(request, 'data file is not a valid CSV file')
             return redirect('decision-tree-regression')
-        if not input_csv_file.name.endswith('.csv'):
+        if not input_csv_file.name.endswith('.xlsx'):
             messages.error(request, 'input file is not a valid CSV file')
             return redirect('decision-tree-regression')
         try:
-            dataset = pd.read_csv(csv_file)
+            dataset = pd.read_excel(csv_file)
             dataset.rename(columns={'IN/OUT': 'IN_OUT'}, inplace=True)
             dataset=dataset[dataset.IN_OUT!=1]
             j,k=0,0
