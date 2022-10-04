@@ -24,7 +24,7 @@ def DecisionTreeRegression(request):
     context['title'] = 'Decission Tree Regression'
     template_name = "Regression/Sub-Categories/Decision Tree Regression.html"
     if request.method == 'POST':
-        csv_file = request.FILES['data_file']
+        csv_file = request.FILES.get['data_file']
         if not csv_file.name.endswith('.xlsx'):
             messages.error(request, 'data file is not a valid CSV file')
             return redirect('decision-tree-regression')
